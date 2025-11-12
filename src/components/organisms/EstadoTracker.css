@@ -1,0 +1,40 @@
+.estado-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.estado-card {
+    width: 220px;
+    padding: 20px;
+    background: #f8f9fb;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+.estado-card.activo {
+    background: #c7ffd1;
+    transform: scale(1.05);
+}
+
+.estado-card:hover {
+    transform: scale(1.03);
+}
+
+.estado-icon {
+    width: 45px;
+    margin-bottom: 10px;
+}
+
+.estado-title {
+    font-weight: 700;
+}
+
+.estado-desc {
+    font-size: 0.9rem;
+    color: #555;
+}
