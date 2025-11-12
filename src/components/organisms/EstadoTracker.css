@@ -1,40 +1,51 @@
+/* Contenedor principal: en pantallas grandes, 2 columnas */
 .estado-container {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
-
-.estado-card {
-    width: 220px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
     padding: 20px;
-    background: #f8f9fb;
-    border-radius: 15px;
+}
+
+/* Cuando la pantalla sea pequeña (tablet/móvil) → 1 sola columna */
+@media (max-width: 768px) {
+    .estado-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Tarjeta */
+.estado-card {
+    background: white;
+    padding: 20px;
+    border-radius: 14px;
     text-align: center;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
-    transition: 0.3s;
+    box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.1);
+    transition: 0.2s ease-in-out;
 }
 
+/* Tarjeta activa */
 .estado-card.activo {
-    background: #c7ffd1;
-    transform: scale(1.05);
-}
-
-.estado-card:hover {
+    border: 2px solid #007bff;
     transform: scale(1.03);
 }
 
+/* ICONO más grande */
 .estado-icon {
-    width: 45px;
-    margin-bottom: 10px;
+    width: 320px;
+    height: 320px;
+    object-fit: contain;
+    margin-bottom: 12px;
 }
 
+/* Título */
 .estado-title {
-    font-weight: 700;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 6px;
 }
 
+/* Descripción */
 .estado-desc {
-    font-size: 0.9rem;
+    font-size: 15px;
     color: #555;
 }

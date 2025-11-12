@@ -1,10 +1,10 @@
 import React from "react";
 import "./EstadoTracker.css";
 
-import caja from "../../assets/img/aaaa.jpg";
-import camion from "../../assets/img/aaaa.jpg";
-import avion from "../../assets/img/aaaa.jpg";
-import check from "../../assets/img/aaaa.jpg";
+import recepcion from "../../assets/img/en_Recepcion.jpg";
+import despaho from "../../assets/img/en_Despacho.jpg";
+import transito from "../../assets/img/en_Transito.jpg";
+import entregado from "../../assets/img/Entregado.jpg";
 
 interface Props {
     estado: string;
@@ -16,25 +16,25 @@ export default function EstadoTracker({ estado }: Props) {
             id: "EN_RECEPCION",
             titulo: "En Recepción",
             descripcion: "Tu encomienda ha sido recibida.",
-            icon: caja,
+            icon: recepcion,
         },
         {
             id: "EN_DESPACHO",
             titulo: "En Despacho",
             descripcion: "La encomienda está siendo preparada para despacho.",
-            icon: camion,
+            icon: despaho,
         },
         {
             id: "EN_TRANSITO",
             titulo: "En Tránsito",
             descripcion: "Tu encomienda va en camino.",
-            icon: avion,
+            icon: transito,
         },
         {
             id: "ENTREGADO",
             titulo: "Entregado",
             descripcion: "La encomienda ha sido entregada.",
-            icon: check,
+            icon: entregado,
         },
     ];
 

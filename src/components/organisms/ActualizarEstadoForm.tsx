@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Input from "../atoms/Input.tsx";
 import Select from "../atoms/Select.tsx";
 import Button from "../atoms/Button.tsx";
-import Imagen from "../../assets/img/aaaa.jpg"; // <-- tu imagen
+import Imagen from "../../assets/img/Actualizar_Estado.png";
 import { actualizarEstado } from "../../services/api.mock.ts";
 
 export default function ActualizarEstadoForm() {
@@ -53,7 +53,7 @@ export default function ActualizarEstadoForm() {
                             width: "100%",
                         }}
                     >
-                        <h3 className="text-center mb-4">Actualizar Estado</h3>
+                        <h3 className="text-center mb-4">Ingrese sus Datos</h3>
 
                         <Input
                             placeholder="Código de la encomienda"

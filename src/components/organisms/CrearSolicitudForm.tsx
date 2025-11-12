@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import FormGroup from "../molecules/FormGroup.tsx";
 import Button from "../atoms/Button.tsx";
-import Imagen from '../../assets/img/aaaa.jpg';
+import Imagen from '../../assets/img/logoDinobox.png';
 import { crearSolicitud, type EncomiendaRequest } from "../../services/api.mock.ts";
 
 
@@ -39,7 +39,7 @@ export default function CrearSolicitudForm() {
                         src={Imagen}
                         alt="Imagen Encomienda"
                         className="img-fluid"
-                        style={{ maxHeight: "450px", objectFit: "cover" }}
+                        style={{ maxHeight: "600px", objectFit: "cover" }}
 
                     />
                 </div>
