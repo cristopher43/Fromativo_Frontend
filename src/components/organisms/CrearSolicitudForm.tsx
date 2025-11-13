@@ -3,6 +3,8 @@ import FormGroup from "../molecules/FormGroup.tsx";
 import Button from "../atoms/Button.tsx";
 import Imagen from '../../assets/img/logoDinobox.png';
 import { crearSolicitud, type EncomiendaRequest } from "../../services/api.mock.ts";
+//import {crearSolicitud, type EncomiendaRequest} from "../../services/api.ts";
+
 
 
 export default function CrearSolicitudForm() {
