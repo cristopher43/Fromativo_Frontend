@@ -1,5 +1,3 @@
-// --- MOCK COMPLETO DEL BACKEND --- //
-
 export interface EncomiendaRequest {
     remitente: string;
     destinatario: string;
@@ -7,14 +5,13 @@ export interface EncomiendaRequest {
     descripcion: string;
 }
 
-// Simulación de base de datos en memoria
 const BD_MOCK: Record<string, { estado: string }> = {};
 
 function generarCodigo() {
     return Math.random().toString(36).substring(2, 10).toUpperCase();
 }
 
-// --- CREAR SOLICITUD (POST) ---
+//CREAR SOLICITUD
 export const crearSolicitud = async (data: EncomiendaRequest) => {
     const codigo = generarCodigo();
 
@@ -28,7 +25,7 @@ export const crearSolicitud = async (data: EncomiendaRequest) => {
     });
 };
 
-// --- CONSULTAR ESTADO (GET) ---
+//CONSULTAR ESTADO
 export const consultarEstado = async (codigo: string) => {
 
     if (!BD_MOCK[codigo]) {
@@ -40,7 +37,7 @@ export const consultarEstado = async (codigo: string) => {
     });
 };
 
-// --- ACTUALIZAR ESTADO (PUT) ---
+//ACTUALIZAR ESTADO
 export const actualizarEstado = async (codigo: string, estado: string) => {
 
     if (!BD_MOCK[codigo]) {
