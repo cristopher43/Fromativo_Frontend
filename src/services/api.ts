@@ -1,9 +1,7 @@
 import axios from "axios";
 
-// URL base de tu backend
-const API = "http://localhost:8080/api";
+const API_BASE = "http://localhost:3000/api/v1/encomienda";
 
-// Tipos
 export interface EncomiendaRequest {
     remitente: string;
     destinatario: string;
@@ -13,24 +11,18 @@ export interface EncomiendaRequest {
 
 export interface EstadoResponse {
     estado: string;
+    codigo?: string;
+    // otros campos que pueda devolver el backend
 }
 
-// 1) Crear solicitud de encomienda
-// Backend esperado: POST /api/crear
-export const crearSolicitud = (data: EncomiendaRequest) => {
-    return axios.post(`${API}/crear`, data);
-};
+// Crear solicitud
+export const crearSolicitud = (data: EncomiendaRequest) =>
+    axios.post(API_BASE, data);
 
-// 2) Consultar estado por código
-// Backend esperado: GET /api/estado/{codigo}
-export const consultarEstado = (codigo: string) => {
-    return axios.get<EstadoResponse>(`${API}/estado/${codigo}`);
-};
+// Consultar estado (devuelve la encomienda completa si existe)
+export const consultarEstado = (codigo: string) =>
+    axios.get<EstadoResponse>(`${API_BASE}/${codigo}`);
 
-// 3) Actualizar estado de la encomienda
-// Backend esperado: PUT /api/encomiendas/actualizar/{codigo}
-export const actualizarEstado = (codigo: string, estado: string) => {
-    return axios.put(`${API}/encomiendas/actualizar/${codigo}`, {
-        estado,
-    });
-};
+// Actualizar estado
+export const actualizarEstado = (codigo: string, estado: string) =>
+    axios.put(`${API_BASE}/${codigo}`, { estado });

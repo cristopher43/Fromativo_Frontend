@@ -2,10 +2,7 @@ import React, { useState } from "react";
 import FormGroup from "../molecules/FormGroup.tsx";
 import Button from "../atoms/Button.tsx";
 import Imagen from '../../assets/img/logoDinobox.png';
-import { crearSolicitud, type EncomiendaRequest } from "../../services/api.mock.ts";
-//import {crearSolicitud, type EncomiendaRequest} from "../../services/api.ts";
-
-
+import { crearSolicitud, type EncomiendaRequest } from "../../services/api.ts";
 
 export default function CrearSolicitudForm() {
     const [form, setForm] = useState<EncomiendaRequest>({
@@ -17,7 +14,7 @@ export default function CrearSolicitudForm() {
 
     const [codigo, setCodigo] = useState("");
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setForm({ ...form, [e.target.name]: e.target.value });
     };
 
@@ -25,8 +22,15 @@ export default function CrearSolicitudForm() {
         e?.preventDefault();
         try {
             const res = await crearSolicitud(form);
-            setCodigo(res.data.codigoSeguimiento);
-        } catch {
+            // Manejar distintos posibles nombres de la respuesta
+            const generated =
+                res?.data?.codigo ||
+                res?.data?.codigoSeguimiento ||
+                res?.data?.tracking ||
+                "";
+            setCodigo(generated);
+        } catch (error) {
+            console.error(error);
             alert("Error al crear la solicitud");
         }
     };
@@ -42,7 +46,6 @@ export default function CrearSolicitudForm() {
                         alt="Imagen Encomienda"
                         className="img-fluid"
                         style={{ maxHeight: "600px", objectFit: "cover" }}
-
                     />
                 </div>
 
